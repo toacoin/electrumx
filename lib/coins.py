@@ -1147,7 +1147,29 @@ class Blackcoin(ScryptMixin, Coin):
     TX_PER_BLOCK = 3
     RPC_PORT = 15715
     REORG_LIMIT = 5000
-
+    
+class TOA(ScryptMixin, Coin):
+    NAME = "TOA"
+    SHORTNAME = "TOA"
+    NET = "mainnet"
+    #XPUB_VERBYTES = bytes.fromhex("0488b21e")
+    #XPRV_VERBYTES = bytes.fromhex("0488ade4")
+    P2PKH_VERBYTE = bytes.fromhex("65")
+    P2SH_VERBYTES = [bytes.fromhex("23")]
+    WIF_BYTE = bytes.fromhex("56")
+    GENESIS_HASH = ('000006cb2d081254e84a103ab457c64f'
+                    '8d8bf01c52fa00e5a3cefc5986bb167b')
+    DESERIALIZER = lib_tx.DeserializerTxTime
+    TX_COUNT = 4230
+    RPC_PORT = 3564
+    ESTIMATE_FEE = 0.00001
+    RELAY_FEE = 0.00001
+    DAEMON = daemon.FakeEstimateFeeDaemon
+    TX_COUNT_HEIGHT = 306187
+    TX_PER_BLOCK = 2
+    
+    
+ 
 
 class Bitbay(ScryptMixin, Coin):
     NAME = "Bitbay"
